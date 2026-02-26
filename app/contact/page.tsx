@@ -2,7 +2,7 @@
  * Contact Page
  */
 
-import { Mail, MapPin, Clock, MessageCircle, Phone, Send } from 'lucide-react';
+import { Mail, MapPin, Clock, MessageCircle, Send } from 'lucide-react';
 
 export const metadata = {
   title: 'Contact Us | Krishna108',
@@ -24,7 +24,7 @@ export default function ContactPage() {
               Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700">Us</span>
             </h1>
             <p className="text-xl text-gray-700 leading-relaxed font-light max-w-3xl mx-auto">
-              Have questions or feedback? We'd love to hear from you.
+              Have questions or feedback? We&apos;d love to hear from you.
             </p>
           </div>
         </div>
@@ -37,10 +37,10 @@ export default function ContactPage() {
             <div className="grid md:grid-cols-2 gap-12">
               {/* Contact Info */}
               <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Let's Connect</h2>
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Let&apos;s Connect</h2>
                 <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                   Whether you have questions about our teachings, want to share feedback, 
-                  or simply wish to connect with our community, we're here to help.
+                  or simply wish to connect with our community, we&apos;re here to help.
                 </p>
 
                 <div className="space-y-8">
@@ -114,7 +114,7 @@ export default function ContactPage() {
                       id="subject"
                       name="subject"
                       className="w-full px-5 py-4 rounded-xl border-2 border-gray-300 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all text-base"
-                      placeholder="What's this about?"
+                      placeholder="What&apos;s this about?"
                     />
                   </div>
                   
@@ -174,7 +174,7 @@ export default function ContactPage() {
                   <span className="text-saffron group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <p className="mt-4 text-gray-700 leading-relaxed">
-                  Visit our Subscribe page to sign up for daily email notifications. You'll receive each new post 
+                  Visit our Subscribe page to sign up for daily email notifications. You&apos;ll receive each new post 
                   directly in your inbox, making it easy to start your day with spiritual wisdom.
                 </p>
               </details>

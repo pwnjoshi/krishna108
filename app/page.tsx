@@ -136,7 +136,7 @@ export default function Home() {
               <p className="text-xl text-gray-700 leading-relaxed mb-8 font-light">
                 Krishna108 is dedicated to bringing the timeless wisdom of ISKCON scriptures 
                 to the modern world. We believe that ancient Vedic knowledge holds the key 
-                to finding peace, purpose, and spiritual fulfillment in today's fast-paced life.
+                to finding peace, purpose, and spiritual fulfillment in today&apos;s fast-paced life.
               </p>
               
               <p className="text-xl text-gray-700 leading-relaxed mb-8 font-light">
@@ -152,7 +152,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-start gap-4">
                   <CheckCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
-                  <span className="text-gray-700 text-lg">Clear explanation of the verse's meaning</span>
+                  <span className="text-gray-700 text-lg">Clear explanation of the verse&apos;s meaning</span>
                 </li>
                 <li className="flex items-start gap-4">
                   <CheckCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
@@ -165,7 +165,7 @@ export default function Home() {
               </ul>
               
               <p className="text-xl text-gray-700 leading-relaxed font-light">
-                Whether you're a longtime devotee or just beginning your spiritual journey, 
+                Whether you&apos;re a longtime devotee or just beginning your spiritual journey, 
                 Krishna108 offers accessible, authentic guidance to deepen your connection 
                 with Krishna consciousness.
               </p>
@@ -195,7 +195,7 @@ export default function Home() {
                   Coming Very Soon
                 </h3>
                 <p className="text-gray-700 mb-8 max-w-2xl text-lg leading-relaxed">
-                  We're putting the finishing touches on our platform. Daily devotional posts 
+                  We&apos;re putting the finishing touches on our platform. Daily devotional posts 
                   will begin publishing automatically at 6:00 AM Nepal Time.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-5">

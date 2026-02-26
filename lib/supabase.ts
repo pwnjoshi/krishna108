@@ -255,10 +255,12 @@ export async function getAllPosts(): Promise<Post[]> {
 // Export Default Client
 // ============================================================================
 
-export default {
+const supabaseAPI = {
   savePost,
   getPostBySlug,
   getRecentPosts,
   getLastPublishedVerse,
   getAllPosts,
 };
+
+export default supabaseAPI;

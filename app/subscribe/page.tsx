@@ -2,7 +2,7 @@
  * Subscribe Page
  */
 
-import { Bell, BookOpen, Lightbulb, Target, Sunrise, Star, CheckCircle } from 'lucide-react';
+import { Bell, BookOpen, Lightbulb, Target, Sunrise, Star } from 'lucide-react';
 
 export const metadata = {
   title: 'Subscribe | Krishna108',
@@ -95,7 +95,7 @@ export default function SubscribePage() {
                 </button>
                 
                 <p className="text-sm text-gray-700 text-center leading-relaxed">
-                  By subscribing, you'll receive one email per day at 6:00 AM Nepal Time. 
+                  By subscribing, you&apos;ll receive one email per day at 6:00 AM Nepal Time. 
                   Unsubscribe anytime.
                 </p>
               </form>
@@ -110,7 +110,7 @@ export default function SubscribePage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                What You'll Receive
+                What You&apos;ll Receive
               </h2>
               <p className="text-gray-600">Benefits of subscribing to Krishna108</p>
             </div>
@@ -181,7 +181,7 @@ export default function SubscribePage() {
                   <Star className="w-6 h-6 text-amber-600 fill-amber-600" />
                 </div>
                 <p className="text-gray-700 mb-5 italic text-lg leading-relaxed">
-                  "Krishna108 has transformed my morning routine. The daily wisdom helps me stay centered throughout the day."
+                  &ldquo;Krishna108 has transformed my morning routine. The daily wisdom helps me stay centered throughout the day.&rdquo;
                 </p>
                 <p className="font-semibold text-gray-900">- Devotee from Kathmandu</p>
               </div>
@@ -195,7 +195,7 @@ export default function SubscribePage() {
                   <Star className="w-6 h-6 text-amber-600 fill-amber-600" />
                 </div>
                 <p className="text-gray-700 mb-5 italic text-lg leading-relaxed">
-                  "The perfect way to start my day with spiritual guidance. Authentic teachings delivered beautifully."
+                  &ldquo;The perfect way to start my day with spiritual guidance. Authentic teachings delivered beautifully.&rdquo;
                 </p>
                 <p className="font-semibold text-gray-900">- Reader from Pokhara</p>
               </div>
@@ -209,7 +209,7 @@ export default function SubscribePage() {
                   <Star className="w-6 h-6 text-amber-600 fill-amber-600" />
                 </div>
                 <p className="text-gray-700 mb-5 italic text-lg leading-relaxed">
-                  "I love how each post includes practical applications. It's not just theory - it's wisdom I can use."
+                  &ldquo;I love how each post includes practical applications. It&apos;s not just theory - it&apos;s wisdom I can use.&rdquo;
                 </p>
                 <p className="font-semibold text-gray-900">- Subscriber from Lalitpur</p>
               </div>

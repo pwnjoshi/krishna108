@@ -47,7 +47,7 @@ export default function TeachingsPage() {
                   It is a sacred dialogue between Lord Krishna and the warrior Arjuna on the battlefield of Kurukshetra.
                 </p>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  "Bhagavad Gita As It Is" by A.C. Bhaktivedanta Swami Prabhupada presents the Gita's 
+                  &ldquo;Bhagavad Gita As It Is&rdquo; by A.C. Bhaktivedanta Swami Prabhupada presents the Gita&apos;s 
                   original Sanskrit verses with English translations and detailed purports, making this 
                   ancient wisdom accessible to modern readers.
                 </p>
@@ -75,7 +75,7 @@ export default function TeachingsPage() {
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900 text-lg mb-1">Dharma (Duty)</h4>
-                      <p className="text-gray-700">Understanding one's righteous path</p>
+                      <p className="text-gray-700">Understanding one&apos;s righteous path</p>
                     </div>
                   </li>
                   <li className="flex items-start gap-4">
@@ -143,7 +143,7 @@ export default function TeachingsPage() {
                       <Sparkles className="w-7 h-7 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-lg mb-1">Krishna's Pastimes</h4>
+                      <h4 className="font-bold text-gray-900 text-lg mb-1">Krishna&apos;s Pastimes</h4>
                       <p className="text-gray-700">Divine activities and teachings</p>
                     </div>
                   </li>
@@ -180,7 +180,7 @@ export default function TeachingsPage() {
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-saffron text-xl">✓</span>
-                    <span className="text-gray-700">Detailed accounts of Krishna's life</span>
+                    <span className="text-gray-700">Detailed accounts of Krishna&apos;s life</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-saffron text-xl">✓</span>
@@ -217,7 +217,7 @@ export default function TeachingsPage() {
                     Explains the Verse
                   </h3>
                   <p className="text-gray-700">
-                    Clear, accessible explanations of the verse's meaning in modern language
+                    Clear, accessible explanations of the verse&apos;s meaning in modern language
                   </p>
                 </div>
                 

@@ -235,7 +235,9 @@ export async function getNextVerse(): Promise<VerseReference> {
 // Default Export
 // ============================================================================
 
-export default {
+const verseSelector = {
   getNextVerse,
   hasVerseBeenPublishedRecently,
 };
+
+export default verseSelector;
