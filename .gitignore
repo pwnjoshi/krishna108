@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
@@ -34,3 +35,20 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Documentation files (keep only essential ones)
+QUICK_START.md
+NEBIUS_AI_SETUP.md
+DEPLOYMENT_GUIDE.md
+UI_UPGRADE_COMPLETE.md
+SUPABASE_SETUP.md
+
+# Kiro specs and workspace files
+.kiro/
+
+# Test connection scripts
+test-supabase-connection.js
+
+# Old/unused components
+components/Navigation.tsx
+components/Footer.tsx
