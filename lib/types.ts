@@ -16,14 +16,14 @@ export interface Post {
   id: string; // UUID
   title: string;
   slug: string; // Unique, URL-friendly
-  scriptureSource: 'Bhagavad Gita' | 'Srimad Bhagavatam';
+  scriptureSource: string; // e.g. "Bhagavad Gita As It Is" or "Srimad Bhagavatam"
   verseReference: string; // e.g., "2.13" or "1.2.3"
   verseExcerpt: string; // Max 40 words
   explanation: string;
   reflection: string;
   practicalApplication: string;
   closingLine: string;
-  seoDescription: string; // Max 160 characters
+  seoDescription?: string; // Max 160 characters
   featuredImageUrl: string | null;
   createdAt: Date;
   updatedAt: Date;
@@ -50,7 +50,7 @@ export interface PostInput {
  * Scripture verse reference with source, chapter, and verse number
  */
 export interface VerseReference {
-  source: 'Bhagavad Gita' | 'Srimad Bhagavatam';
+  source: string;
   chapter: number;
   verse: number;
   text?: string; // Optional verse text for reference
