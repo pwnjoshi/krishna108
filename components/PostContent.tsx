@@ -183,7 +183,7 @@ export default function PostContent({ post }: PostContentProps) {
             {/* Closing */}
             <footer className="pt-16 md:pt-20 text-center">
               <p className="text-3xl md:text-6xl font-serif italic text-white/20 hover:text-saffron-500 transition-colors duration-1000 uppercase">
-                {post.closingLine || "Jai Sri Krishna."}
+                {post.closingLine || "Hare Krishna."}
               </p>
             </footer>
           </div>

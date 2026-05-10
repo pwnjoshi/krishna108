@@ -76,7 +76,7 @@ export default function ModernFooter() {
         {/* Bottom Bar */}
         <div className="mt-20 pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-bold uppercase tracking-[0.4em] text-white/20">
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-10">
-            <p>© {currentYear} Krishna108 • Eternal Transmission</p>
+            <p>© {currentYear} Krishna108 • Hare Krishna</p>
             <div className="flex gap-10">
               <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
               <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
