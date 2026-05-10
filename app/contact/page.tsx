@@ -1,207 +1,97 @@
-/**
- * Contact Page
- */
+"use client";
 
-import { Mail, MapPin, Clock, MessageCircle, Send } from 'lucide-react';
-
-export const metadata = {
-  title: 'Contact Us | Krishna108',
-  description: 'Get in touch with Krishna108. We would love to hear from you.',
-};
+import { motion } from 'framer-motion';
+import { Mail, MapPin, Clock, Send, MessageCircle, Sparkles } from 'lucide-react';
 
 export default function ContactPage() {
+  const fadeIn = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+  };
+
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-amber-50/30 to-white pt-24">
-      {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-amber-100/40 via-orange-50/30 to-amber-100/40">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-gradient-to-r from-amber-100 to-orange-100 rounded-full mb-8 shadow-sm border border-amber-200/50">
-              <MessageCircle className="w-5 h-5 text-amber-600" />
-              <span className="text-amber-700 font-semibold text-sm tracking-wide">Get In Touch</span>
-            </div>
-            <h1 className="text-6xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tight">
-              Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700">Us</span>
-            </h1>
-            <p className="text-xl text-gray-700 leading-relaxed font-light max-w-3xl mx-auto">
-              Have questions or feedback? We&apos;d love to hear from you.
-            </p>
-          </div>
-        </div>
+    <main className="bg-deepSpace-950 text-white min-h-screen pt-24 pb-20 md:pb-40">
+      {/* 01. HEADER: MINIMALIST IMPACT */}
+      <section className="container mx-auto px-6 py-12 md:py-24">
+        <motion.div {...fadeIn} className="max-w-4xl">
+           <span className="text-saffron-500 font-bold tracking-[0.4em] uppercase text-[10px] md:text-xs mb-6 md:mb-8 block">Inquiry</span>
+           <h1 className="text-[14vw] md:text-[8vw] font-serif font-bold leading-[0.8] tracking-tighter italic mb-8 md:mb-12">
+             GET IN <br/> <span className="text-saffron-500">TOUCH.</span>
+           </h1>
+           <p className="text-xl md:text-3xl text-slate-400 font-light leading-tight">
+             Have a question about the teachings or the mission? We are here to listen and respond.
+           </p>
+        </motion.div>
       </section>
 
-      {/* Contact Form Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Contact Info */}
-              <div>
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">Let&apos;s Connect</h2>
-                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                  Whether you have questions about our teachings, want to share feedback, 
-                  or simply wish to connect with our community, we&apos;re here to help.
-                </p>
-
-                <div className="space-y-8">
-                  <div className="flex items-start gap-5">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-md">
-                      <MapPin className="w-7 h-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 mb-2 text-lg">Location</h3>
-                      <p className="text-gray-700 text-base">Kathmandu, Nepal</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-5">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-md">
-                      <Mail className="w-7 h-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 mb-2 text-lg">Email</h3>
-                      <p className="text-gray-700 text-base">contact@krishna108.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-5">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center flex-shrink-0 shadow-md">
-                      <Clock className="w-7 h-7 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 mb-2 text-lg">Response Time</h3>
-                      <p className="text-gray-700 text-base">Within 24-48 hours</p>
-                    </div>
-                  </div>
-                </div>
+      {/* 02. CONTACT GRID: FORM + INFO */}
+      <section className="container mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-20 md:gap-32">
+          {/* Form */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="space-y-12"
+          >
+            <form action="https://api.web3forms.com/submit" method="POST" className="space-y-10 md:space-y-12">
+              <input type="hidden" name="access_key" value="9fb245d4-b188-4b8b-b514-23b66e38a815" />
+              <input type="hidden" name="subject" value="New Inquiry from Krishna108" />
+              <input type="hidden" name="from_name" value="Krishna108 Pulse" />
+              <input type="hidden" name="redirect" value="https://krishna108.com.np/success" />
+              
+              <div className="space-y-3 md:space-y-4">
+                 <label className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-white/40">Your Name</label>
+                 <input type="text" name="name" required className="w-full bg-transparent border-b border-white/10 py-3 md:py-4 outline-none focus:border-saffron-500 transition-all text-xl md:text-2xl font-light" placeholder="Arjuna" />
               </div>
-
-              {/* Contact Form */}
-              <div className="bg-gradient-to-br from-amber-100/60 to-orange-100/60 rounded-3xl p-10 border-2 border-amber-200/50 shadow-lg">
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-3">
-                      Your Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      className="w-full px-5 py-4 rounded-xl border-2 border-gray-300 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all text-base"
-                      placeholder="Enter your name"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-3">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="w-full px-5 py-4 rounded-xl border-2 border-gray-300 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all text-base"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-semibold text-gray-900 mb-3">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      className="w-full px-5 py-4 rounded-xl border-2 border-gray-300 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all text-base"
-                      placeholder="What&apos;s this about?"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-3">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={5}
-                      className="w-full px-5 py-4 rounded-xl border-2 border-gray-300 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all resize-none text-base"
-                      placeholder="Tell us more..."
-                    />
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    className="group w-full px-6 py-4 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-xl hover:from-amber-700 hover:to-orange-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
-                  >
-                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    Send Message
-                  </button>
-                </form>
+              <div className="space-y-3 md:space-y-4">
+                 <label className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-white/40">Email Address</label>
+                 <input type="email" name="email" required className="w-full bg-transparent border-b border-white/10 py-3 md:py-4 outline-none focus:border-saffron-500 transition-all text-xl md:text-2xl font-light" placeholder="bhakti@yoga.com" />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              <div className="space-y-3 md:space-y-4">
+                 <label className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-white/40">Message</label>
+                 <textarea name="message" required rows={4} className="w-full bg-transparent border-b border-white/10 py-3 md:py-4 outline-none focus:border-saffron-500 transition-all text-xl md:text-2xl font-light resize-none" placeholder="I have a question about..." />
+              </div>
+              <button type="submit" className="group flex items-center gap-4 md:gap-6 text-xl md:text-2xl font-serif font-bold italic text-saffron-500 hover:text-white transition-all">
+                SEND TRANSMISSION <Send className="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-2 transition-transform" />
+              </button>
+            </form>
+          </motion.div>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-gradient-to-br from-saffron/5 to-orange-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-gray-600">Quick answers to common questions</p>
-            </div>
-            
-            <div className="space-y-4">
-              <details className="bg-white rounded-xl p-6 shadow-sm group">
-                <summary className="font-bold text-gray-900 cursor-pointer list-none flex items-center justify-between">
-                  <span>When are new posts published?</span>
-                  <span className="text-saffron group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
-                  New devotional posts are automatically published every day at 6:00 AM Nepal Time (UTC+5:45). 
-                  Each post features a verse from either the Bhagavad Gita or Srimad Bhagavatam.
+          {/* Info */}
+          <div className="space-y-16 md:space-y-24">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+               {[
+                 { icon: MapPin, title: "Nexus", value: "Kathmandu, Nepal" },
+                 { icon: Mail, title: "Pulse", value: "wisdom@krishna108.com.np" },
+                 { icon: Clock, title: "Latency", value: "< 24 Earth Hours" },
+                 { icon: MessageCircle, title: "Channel", value: "Status: Offline" }
+               ].map((item, idx) => (
+                 <motion.div 
+                   key={idx}
+                   {...fadeIn}
+                   transition={{ delay: idx * 0.1 }}
+                   className="space-y-3 md:space-y-4"
+                 >
+                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-white/5 flex items-center justify-center text-saffron-500 mb-4 md:mb-6">
+                     <item.icon className="w-5 h-5 md:w-6 md:h-6" />
+                   </div>
+                   <h4 className="text-[10px] md:text-xs font-bold text-white/40 uppercase tracking-widest">{item.title}</h4>
+                   <p className="text-lg md:text-xl font-serif italic text-white">{item.value}</p>
+                 </motion.div>
+               ))}
+             </div>
+
+             <div className="p-8 md:p-12 bg-saffron-500 text-deepSpace-950 rounded-[30px] md:rounded-[40px] relative overflow-hidden">
+                <h3 className="text-2xl md:text-3xl font-serif font-bold italic mb-4 md:mb-6 uppercase">Looking to <br className="hidden md:block" /> Contribute?</h3>
+                <p className="text-base md:text-lg font-medium leading-relaxed mb-8 md:mb-10 opacity-80">
+                  We are always seeking developers, designers, and editors who want to use their skills for the Supreme.
                 </p>
-              </details>
-              
-              <details className="bg-white rounded-xl p-6 shadow-sm group">
-                <summary className="font-bold text-gray-900 cursor-pointer list-none flex items-center justify-between">
-                  <span>How can I subscribe to receive posts?</span>
-                  <span className="text-saffron group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
-                  Visit our Subscribe page to sign up for daily email notifications. You&apos;ll receive each new post 
-                  directly in your inbox, making it easy to start your day with spiritual wisdom.
-                </p>
-              </details>
-              
-              <details className="bg-white rounded-xl p-6 shadow-sm group">
-                <summary className="font-bold text-gray-900 cursor-pointer list-none flex items-center justify-between">
-                  <span>Are the teachings authentic ISKCON philosophy?</span>
-                  <span className="text-saffron group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
-                  Yes! All our content is based on authentic ISKCON scriptures - the Bhagavad Gita As It Is and 
-                  Srimad Bhagavatam. We maintain strict alignment with Vaishnava philosophy while creating original 
-                  reflections that respect copyright.
-                </p>
-              </details>
-              
-              <details className="bg-white rounded-xl p-6 shadow-sm group">
-                <summary className="font-bold text-gray-900 cursor-pointer list-none flex items-center justify-between">
-                  <span>Can I share the posts on social media?</span>
-                  <span className="text-saffron group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p className="mt-4 text-gray-700 leading-relaxed">
-                  Absolutely! We encourage you to share our posts with friends and family. Each post is designed 
-                  to be easily shareable, helping spread spiritual wisdom to more people.
-                </p>
-              </details>
-            </div>
+                <button className="flex items-center gap-3 text-xs md:text-sm font-black tracking-widest uppercase border-b-2 border-deepSpace-950 pb-1">
+                   Join the Collective <Sparkles className="w-4 h-4" />
+                </button>
+             </div>
           </div>
         </div>
       </section>

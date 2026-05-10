@@ -1,219 +1,118 @@
-/**
- * About Page
- * 
- * Explains the platform's mission and philosophy
- * - Content about Krishna108's purpose
- * - Consistent design system styling
- * - Mobile responsive layout
- * 
- * Requirements: 11.1, 11.4
- */
+"use client";
+
+import { motion } from 'framer-motion';
+import { Sparkles, Zap, Heart, Shield, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function AboutPage() {
+  const fadeIn = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true },
+    transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
+  };
+
   return (
-    <main className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-16">
-        {/* Header Section */}
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              About Krishna108
+    <main className="bg-deepSpace-950 text-white min-h-screen pt-24 pb-20">
+      {/* 01. THE ORIGIN: CINEMATIC HERO */}
+      <section className="relative h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0 bg-deepSpace-900">
+          <div 
+            className="w-full h-full bg-cover bg-center opacity-30 grayscale contrast-125"
+            style={{ backgroundImage: `url('/manifesto.png')` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-deepSpace-950/20 via-deepSpace-950/80 to-deepSpace-950" />
+        </div>
+
+        <div className="relative z-10 container mx-auto px-6 text-center">
+          <motion.div {...fadeIn}>
+            <span className="text-saffron-500 font-bold tracking-[0.5em] uppercase text-[10px] md:text-xs mb-6 md:mb-8 block">Our Manifesto</span>
+            <h1 className="text-[14vw] md:text-[8vw] font-serif font-bold leading-[0.8] tracking-tighter italic mb-8 md:mb-12">
+              THE <br/> <span className="text-saffron-500">AWAKENING.</span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Daily devotional wisdom from authentic ISKCON scriptures
+            <p className="text-xl md:text-3xl text-slate-400 font-light max-w-4xl mx-auto leading-relaxed">
+              Krishna108 is a digital sanctuary dedicated to presenting the authentic Vedic science of God-realization, as taught in the authorized disciplic succession.
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 02. THE MISSION: SPLIT LAYOUT */}
+      <section className="container mx-auto px-6 py-24 md:py-40">
+        <div className="grid lg:grid-cols-2 gap-16 md:gap-32 items-center">
+          <div className="space-y-8 md:space-y-12">
+            <h2 className="text-4xl md:text-7xl font-serif font-bold italic leading-tight">
+              Why we <br/> <span className="text-saffron-500">Exist.</span>
+            </h2>
+            <div className="space-y-6 md:space-y-8 text-lg md:text-xl text-slate-400 font-light leading-relaxed">
+               <p>
+                 In an age of distraction, we have lost the anchor of our eternal relationship with Krishna. Krishna108 was born to restore that connection.
+               </p>
+               <p>
+                 We leverage technology to serve the Absolute Truth. Every pixel and every transmission is an offering to the Supreme Personality of Godhead, Lord Sri Krishna.
+               </p>
+            </div>
+          </div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="relative rounded-[30px] md:rounded-[60px] overflow-hidden aspect-square shadow-2xl bg-deepSpace-900"
+          >
+            <img 
+              src="/mission.png" 
+              alt="Our Mission" 
+              className="w-full h-full object-cover grayscale-[20%] contrast-110"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 03. CORE VALUES: GRID */}
+      <section className="bg-white text-deepSpace-950 py-24 md:py-40 rounded-t-[40px] md:rounded-t-[60px]">
+        <div className="container mx-auto px-6">
+          <div className="mb-16 md:mb-24">
+             <h2 className="text-4xl md:text-7xl font-serif font-bold italic leading-tight">The Code <br/> <span className="text-saffron-500">We Live By.</span></h2>
           </div>
 
-          {/* Mission Section */}
-          <section className="mb-16">
-            <div className="bg-gradient-to-r from-saffron/10 to-saffron/5 rounded-lg p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Our Mission
-              </h2>
-              <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
-                <p>
-                  Krishna108 is a fully automated devotional publishing platform dedicated to 
-                  delivering daily spiritual content to youth and devotees in Nepal and beyond. 
-                  We bring the timeless wisdom of the Bhagavad Gita As It Is and Srimad Bhagavatam 
-                  to modern seekers through thoughtful, original reflections.
-                </p>
-                <p>
-                  Every day, our platform automatically generates and publishes one devotional post, 
-                  drawing from ISKCON scripture references while creating fresh insights that respect 
-                  copyright boundaries. This ensures a consistent flow of spiritual guidance without 
-                  manual intervention.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Philosophy Section */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Our Philosophy
-            </h2>
-            <div className="space-y-6 text-gray-700 leading-relaxed">
-              <div className="border-l-4 border-saffron pl-6 py-2">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  Scripture Authenticity
-                </h3>
-                <p>
-                  All our content is rooted in authentic ISKCON scriptures—the Bhagavad Gita As It Is 
-                  and Srimad Bhagavatam. We maintain philosophical accuracy and alignment with 
-                  Vaishnava teachings in every post.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-saffron pl-6 py-2">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  Original Reflections
-                </h3>
-                <p>
-                  While we reference sacred verses, we create original devotional reflections and 
-                  practical applications. This approach respects copyright while providing fresh 
-                  perspectives on timeless wisdom.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-saffron pl-6 py-2">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  Practical Spirituality
-                </h3>
-                <p>
-                  Each post includes practical applications to help you integrate spiritual wisdom 
-                  into daily life. We believe that devotional knowledge should be both contemplative 
-                  and actionable.
-                </p>
-              </div>
-
-              <div className="border-l-4 border-saffron pl-6 py-2">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                  Sequential Learning
-                </h3>
-                <p>
-                  Our posts follow a sequential progression through the scriptures, allowing readers 
-                  to systematically explore the Bhagavad Gita and Srimad Bhagavatam over time. This 
-                  structured approach supports deep, sustained spiritual growth.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* How It Works Section */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              How It Works
-            </h2>
-            <div className="bg-white border border-gray-200 rounded-lg p-8 space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-saffron text-white rounded-full flex items-center justify-center font-bold">
-                  1
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Daily Automation
-                  </h3>
-                  <p className="text-gray-700">
-                    Every day at 6:00 AM Nepal Time, our system automatically selects the next 
-                    sequential verse from the scriptures.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-saffron text-white rounded-full flex items-center justify-center font-bold">
-                  2
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Content Generation
-                  </h3>
-                  <p className="text-gray-700">
-                    AI-powered content generation creates original devotional reflections based on 
-                    the selected verse, maintaining ISKCON-aligned philosophy.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-10 h-10 bg-saffron text-white rounded-full flex items-center justify-center font-bold">
-                  3
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    Instant Publishing
-                  </h3>
-                  <p className="text-gray-700">
-                    The post is immediately published to the website, complete with SEO optimization 
-                    for maximum reach and impact.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Target Audience Section */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Who We Serve
-            </h2>
-            <div className="bg-gradient-to-r from-saffron/5 to-white rounded-lg p-8">
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Krishna108 is designed for youth and devotees in Nepal seeking daily spiritual 
-                guidance. Whether you&apos;re new to Krishna consciousness or a seasoned practitioner, 
-                our posts offer accessible wisdom and practical insights.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                We aim to build a community of seekers who value authentic spiritual teachings, 
-                philosophical depth, and practical application in modern life.
-              </p>
-            </div>
-          </section>
-
-          {/* Long-term Vision Section */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Long-term Vision
-            </h2>
-            <div className="text-gray-700 leading-relaxed space-y-4">
-              <p>
-                Our vision extends beyond daily posts. We&apos;re building a comprehensive spiritual 
-                resource that will grow organically over years, creating a vast library of devotional 
-                content that serves seekers for generations.
-              </p>
-              <p>
-                With 365+ unique verses and systematic progression through the scriptures, Krishna108 
-                will become a trusted companion on your spiritual journey, offering fresh insights 
-                day after day, year after year.
-              </p>
-              <p>
-                Through SEO optimization and consistent publishing, we aim to reach seekers across 
-                Nepal and beyond, making authentic ISKCON wisdom accessible to anyone with an 
-                internet connection.
-              </p>
-            </div>
-          </section>
-
-          {/* Call to Action */}
-          <section className="text-center">
-            <div className="bg-gradient-to-r from-saffron/20 to-saffron/10 rounded-lg p-8 md:p-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Join Our Spiritual Journey
-              </h2>
-              <p className="text-lg text-gray-700 mb-6">
-                Visit daily for fresh devotional wisdom and deepen your connection with 
-                Krishna consciousness.
-              </p>
-              <a
-                href="/"
-                className="inline-block px-8 py-3 bg-saffron text-white font-semibold rounded-lg hover:bg-saffron/90 transition-colors"
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+            {[
+              { icon: Shield, title: "Authenticity", desc: "Zero compromise on scriptural purity. We follow the disciplic succession with absolute fidelity." },
+              { icon: Zap, title: "Innovation", desc: "Using the tools of the 21st century to amplify the wisdom of the ancients." },
+              { icon: Heart, title: "Devotion", desc: "Bhakti is the core of everything. Our work is an offering, not a commodity." }
+            ].map((value, idx) => (
+              <motion.div 
+                key={idx}
+                {...fadeIn}
+                transition={{ delay: idx * 0.2 }}
+                className="space-y-6 md:space-y-8"
               >
-                Read Today&apos;s Post
-              </a>
-            </div>
-          </section>
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-deepSpace-950 text-saffron-500 flex items-center justify-center">
+                  <value.icon className="w-8 h-8 md:w-10 md:h-10" />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold italic">{value.title}</h3>
+                <p className="text-lg md:text-xl text-slate-600 font-light leading-relaxed">{value.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* 04. THE TEAM: MINIMALIST */}
+      <section className="bg-deepSpace-950 py-24 md:py-40">
+        <div className="container mx-auto px-6 text-center">
+           <motion.div {...fadeIn}>
+              <h2 className="text-3xl md:text-6xl font-serif font-bold italic text-white mb-10 md:mb-16 uppercase">
+                A Global <span className="text-saffron-500">Collective.</span>
+              </h2>
+              <p className="text-lg md:text-xl text-slate-400 font-light max-w-3xl mx-auto mb-16 md:mb-24 leading-relaxed">
+                We are a distributed team of devotees, engineers, and designers unified by a single vision: to make the divine accessible to all.
+              </p>
+              <Link href="/contact" className="inline-flex items-center gap-4 text-saffron-500 font-bold tracking-widest uppercase text-xs md:text-sm border-b border-saffron-500 pb-2 hover:text-white hover:border-white transition-all">
+                Connect with the Mission <ArrowRight className="w-5 h-5" />
+              </Link>
+           </motion.div>
+        </div>
+      </section>
     </main>
   );
 }

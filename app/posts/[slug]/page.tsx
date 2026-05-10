@@ -1,21 +1,23 @@
 import { notFound } from 'next/navigation';
-import { getPostBySlug } from '@/lib/supabase';
 import PostContent from '@/components/PostContent';
+import { MOCK_POSTS } from '@/lib/data';
+import { Metadata } from 'next';
 
-/**
- * Dynamic Post Page
- * 
- * Displays individual post pages at /posts/[slug]
- * - Fetches post by slug from database
- * - Renders using PostContent component
- * - Returns 404 for non-existent slugs
- * - Mobile responsive
- * 
- * Requirements: 6.1, 6.2, 6.3, 6.5
- */
+export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
+  const post = MOCK_POSTS.find(p => p.slug === params.slug);
+  
+  if (!post) return {};
 
-// Force dynamic rendering since we need to fetch from database
-export const dynamic = 'force-dynamic';
+  return {
+    title: `${post.title} | Krishna108`,
+    description: post.explanation.substring(0, 160),
+    openGraph: {
+      title: post.title,
+      description: post.explanation.substring(0, 160),
+      images: [post.featuredImageUrl || '/hero.png'],
+    },
+  };
+}
 
 interface PostPageProps {
   params: {
@@ -23,19 +25,17 @@ interface PostPageProps {
   };
 }
 
-export default async function PostPage({ params }: PostPageProps) {
+export default function PostPage({ params }: PostPageProps) {
   const { slug } = params;
 
-  // Fetch post by slug
-  const post = await getPostBySlug(slug);
+  const post = MOCK_POSTS.find(p => p.slug === slug);
 
-  // Return 404 if post doesn't exist
   if (!post) {
     notFound();
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-deepSpace-950">
       <PostContent post={post} />
     </main>
   );

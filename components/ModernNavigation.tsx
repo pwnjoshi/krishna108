@@ -1,14 +1,10 @@
-/**
- * Modern Navigation Component with Glassmorphism
- * Sticky header with blur effect and smooth animations
- */
-
 'use client';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Menu, X, Sparkles, Bell } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ModernNavigation() {
   const pathname = usePathname();
@@ -24,103 +20,100 @@ export default function ModernNavigation() {
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/teachings', label: 'Teachings' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/', label: 'The Vault' },
+    { href: '/about', label: 'Manifesto' },
+    { href: '/teachings', label: 'The Code' },
+    { href: '/contact', label: 'Inquiry' },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-xl shadow-xl border-b border-amber-200/50'
-          : 'bg-transparent'
+          ? 'bg-deepSpace-950/90 backdrop-blur-2xl border-b border-white/5 py-4'
+          : 'bg-transparent py-8'
       }`}
     >
       <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="transform group-hover:scale-110 transition-transform">
-              <Sparkles className="w-8 h-8 text-amber-600" />
-            </div>
-            <div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-                Krishna108
-              </span>
-              <p className="text-xs text-gray-600 -mt-1 font-medium">Daily Spiritual Wisdom</p>
-            </div>
+          <Link href="/" className="flex items-center group">
+            <span className="text-2xl font-serif font-black text-white tracking-tighter uppercase italic">
+              Krishna<span className="text-saffron-500">108</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-12">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative font-semibold transition-colors text-base ${
+                className={`relative font-black transition-all text-[10px] uppercase tracking-[0.4em] ${
                   pathname === link.href
-                    ? 'text-amber-700'
-                    : 'text-gray-700 hover:text-amber-600'
+                    ? 'text-saffron-500'
+                    : 'text-white/40 hover:text-white'
                 }`}
               >
                 {link.label}
                 {pathname === link.href && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-600 to-orange-600 rounded-full" />
+                  <motion.span 
+                    layoutId="nav-underline"
+                    className="absolute -bottom-1 left-0 w-4 h-[2px] bg-saffron-500" 
+                  />
                 )}
               </Link>
             ))}
             <Link
               href="/subscribe"
-              className="group px-6 py-2.5 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-full hover:from-amber-700 hover:to-orange-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex items-center gap-2"
+              className="px-8 py-3 bg-white text-deepSpace-950 font-black text-[10px] uppercase tracking-[0.2em] rounded-full hover:bg-saffron-500 transition-all"
             >
-              <Bell className="w-4 h-4 group-hover:scale-110 transition-transform" />
-              Subscribe
+              Initialize
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-gray-700 hover:text-amber-600 transition-colors rounded-lg hover:bg-amber-50"
-            aria-label="Toggle menu"
+            className="md:hidden p-2 text-white/60 hover:text-saffron-500 transition-colors"
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden py-4 bg-white/95 backdrop-blur-xl rounded-b-2xl shadow-2xl border-t border-amber-200/50">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-6 py-3 font-semibold transition-colors ${
-                  pathname === link.href
-                    ? 'text-amber-700 bg-amber-50'
-                    : 'text-gray-700 hover:text-amber-600 hover:bg-amber-50/50'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/subscribe"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 mx-4 mt-4 px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white font-semibold rounded-full text-center shadow-md"
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="md:hidden absolute top-full left-0 right-0 py-12 bg-deepSpace-950 border-b border-white/5 shadow-2xl"
             >
-              <Bell className="w-4 h-4" />
-              Subscribe
-            </Link>
-          </div>
-        )}
+              <div className="flex flex-col items-center space-y-8">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`text-2xl font-serif font-bold italic transition-colors ${
+                      pathname === link.href ? 'text-saffron-500' : 'text-white'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+                <Link
+                  href="/subscribe"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="px-12 py-4 bg-saffron-500 text-deepSpace-950 font-black uppercase tracking-widest rounded-full"
+                >
+                  Join Circle
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
